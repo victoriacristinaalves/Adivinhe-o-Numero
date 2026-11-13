@@ -1,0 +1,35 @@
+<?php
+
+$chute = 0;
+
+$minimo = (int) readline("Informe o valor minimo do intervalo: ");
+$maximo = (int) readline("Informe o segundo número do intervalo: ");
+
+$num_aleatorio = rand($minimo, $maximo);
+
+$num_tentativas = 0;
+
+do {
+    $chute = (int) readline("Digite um número: ");
+
+    if($chute === $num_aleatorio){
+        print("Você venceu!\n");
+
+        $num_tentativas++;
+
+        print("Você acertou o número em $num_tentativas tentativas.");
+    } else {
+        print("Você perdeu..\n ");
+
+        if($chute > $num_aleatorio){
+            print("O número chutado é muito alto.\n");
+
+            $num_tentativas++;
+        } else {
+            print("O número chutado é muito baixo.\n");
+            $num_tentativas++;
+        }
+     }
+}
+
+while($chute != $num_aleatorio);
